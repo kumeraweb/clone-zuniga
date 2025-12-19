@@ -15,30 +15,30 @@ export type Executive = {
 
 export const EXECUTIVES: Executive[] = [
   {
-    slug: 'maria-ines',
-    fullName: 'María Inés',
-    phone: '912345678',
+    slug: 'ejecutiva',
+    fullName: 'Ejecutiva Oficial',
+    phone: '983589813',
     email: 'ejecutiva@ucmchile.cl',
     cityPrimary: 'Santiago',
     cityCoverage: ['Santiago', 'Región Metropolitana', 'Valparaíso'],
-    domain: 'https://www.contratarucm.cl',
+    domain: 'https://www.planeatencionhogar.cl',
     whatsappMsg: 'Hola, quiero cotizar un plan UCM',
     ogImage: '/images/og-default.jpg',
     heroImage: '/images/hero.jpg',
-    officialUcmProfileUrl: 'https://www.ucmchile.cl/...(url-oficial-aquí)'
+    officialUcmProfileUrl: 'https://www.ucmchile.cl/'
   },
   {
-    slug: 'erika',
-    fullName: 'Erika',
-    phone: '987654321',
+    slug: 'ejecutiva',
+    fullName: 'Ejecutiva Oficial',
+    phone: '942874934',
     email: 'ejecutiva@ucmchile.cl',
     cityPrimary: 'Valparaíso',
     cityCoverage: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'Villa Alemana', 'Santiago'],
-    domain: 'https://www.contratarplanesucm.cl',
+    domain: 'https://www.planesdeasistenciaprivada.cl',
     whatsappMsg: 'Hola, quiero cotizar un plan UCM',
     ogImage: '/images/og-default.jpg',
     heroImage: '/images/hero.jpg',
-    officialUcmProfileUrl: 'https://www.ucmchile.cl/...(url-oficial-aquí)'
+    officialUcmProfileUrl: 'https://www.ucmchile.cl/'
   }
 ]
 
