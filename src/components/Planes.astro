@@ -1,0 +1,118 @@
+---
+import type { Executive } from "../data/data";
+import { buildLinks } from "../data/data";
+
+type Plan = {
+  name: string;
+  subtitle: string;
+  priceFrom: string;
+  description: string;
+  features: string[];
+};
+
+type Props = {
+  executive: Executive;
+};
+
+const { executive } = Astro.props;
+const { wa, call } = buildLinks(executive);
+
+const plans: Plan[] = [
+  {
+    name: "Full Rescue",
+    subtitle: "Cuota mensual desde",
+    priceFrom: "0,59 UF",
+    description: "Emergencias y urgencias médicas.",
+    features: [
+      "Rescate ante emergencias médicas.",
+      "Atención programada de urgencias médicas.",
+      "Orientación de salud telefónica.",
+    ],
+  },
+  {
+    name: "Senior",
+    subtitle: "Cuota mensual desde",
+    priceFrom: "1,0 UF",
+    description: "Protección para adultos desde 75 años.",
+    features: [
+      "Rescate ante emergencias con riesgo vital y/o urgencias médicas.",
+      "Asistencia de salud con copago $0 en centros médicos.",
+      "Hasta 25% de descuento en servicios de salud a domicilio.",
+    ],
+  },
+];
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 md:px-12">
+
+    <!-- Title -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">
+        Planes UCM
+      </h2>
+      <p class="mt-4 text-gray-600">
+        Conoce las alternativas de planes disponibles y elige la opción
+        que mejor se adapte a tus necesidades.
+      </p>
+    </div>
+
+    <!-- Plans Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {plans.map((plan) => (
+        <div class="rounded-2xl border border-gray-200 p-8 flex flex-col justify-between shadow-sm">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900">
+              {plan.name}
+            </h3>
+
+            <p class="mt-2 text-sm text-gray-500 uppercase tracking-wide">
+              {plan.subtitle}
+            </p>
+
+            <div class="mt-4 text-4xl font-bold text-ucm-blue">
+              {plan.priceFrom}
+            </div>
+
+            <p class="mt-4 text-gray-600">
+              {plan.description}
+            </p>
+
+            <ul class="mt-6 space-y-3">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <span class="text-ucm-blue">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8 flex flex-col gap-3">
+            <a
+              href={wa}
+              class="w-full text-center bg-ucm-blue text-white py-3 rounded-lg font-semibold"
+            >
+              Contratar por WhatsApp
+            </a>
+
+            <a
+              href={call}
+              class="w-full text-center border border-ucm-blue text-ucm-blue py-3 rounded-lg font-semibold"
+            >
+              Llamar para cotizar
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Legal note -->
+    <p class="mt-10 text-center text-xs text-gray-500 max-w-3xl mx-auto">
+      Valores referenciales. Las condiciones y coberturas pueden variar según el
+      plan contratado, edad y zona. Confirma siempre con una ejecutiva autorizada UCM.
+    </p>
+
+  </div>
+</section>

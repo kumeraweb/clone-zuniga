@@ -1,0 +1,54 @@
+---
+type Props = {
+  imageSrc?: string
+}
+
+const { imageSrc = '/images/cobertura.png' } = Astro.props
+---
+
+<section class="bg-gray-50 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 md:px-12">
+    <!-- Título -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Cobertura de los Planes UCM</h2>
+      <p class="mt-4 text-gray-600">
+        Los planes UCM cuentan con cobertura nacional e internacional, según condiciones del plan
+        contratado.
+      </p>
+    </div>
+
+    <!-- Contenido -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Imagen de cobertura -->
+      <div class="flex justify-center">
+        <img
+          src={imageSrc}
+          alt="Cobertura nacional e internacional de los planes UCM"
+          class="w-full max-w-md md:max-w-lg"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Texto explicativo -->
+      <div class="space-y-6 text-gray-700">
+        <p>
+          Los planes UCM ofrecen cobertura en las principales comunas de Chile, además de acceso a
+          una red de atención internacional en países de Latinoamérica, de acuerdo al tipo de plan
+          contratado.
+        </p>
+
+        <ul class="space-y-3 list-disc list-inside">
+          <li>Cobertura nacional dentro de Chile.</li>
+          <li>Red internacional en países de Latinoamérica.</li>
+          <li>Aplicación sujeta a condiciones del plan.</li>
+          <li>Orientación y coordinación médica.</li>
+        </ul>
+
+        <p class="text-sm text-gray-500">
+          La cobertura puede variar según el plan contratado y la zona. Confirma siempre los
+          detalles con una ejecutiva autorizada UCM.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

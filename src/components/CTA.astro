@@ -1,0 +1,43 @@
+---
+import type { Executive } from '../data/data'
+import { buildLinks } from '../data/data'
+
+type Props = {
+  executive: Executive
+}
+
+const { executive } = Astro.props
+const { wa, call } = buildLinks(executive)
+---
+
+<section class="bg-ucm-blue py-16 md:py-20">
+  <div class="max-w-4xl mx-auto px-5 md:px-12 text-center text-white">
+    <h2 class="text-2xl md:text-3xl font-semibold">Contrata tu Plan UCM hoy</h2>
+
+    <p class="mt-4 text-white/90">
+      Afíliate con una ejecutiva autorizada y recibe asesoría personalizada según tu familia, edad o
+      empresa.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={wa}
+        class="inline-flex items-center justify-center rounded-lg bg-white text-ucm-blue px-6 py-4 font-semibold"
+      >
+        Cotizar por WhatsApp
+      </a>
+
+      <a
+        href={call}
+        class="inline-flex items-center justify-center rounded-lg border border-white px-6 py-4 font-semibold"
+      >
+        Llamar para contratar
+      </a>
+    </div>
+
+    <p class="mt-6 text-xs text-white/70">
+      Proceso de afiliación guiado por una ejecutiva autorizada UCM. Condiciones sujetas al plan
+      contratado.
+    </p>
+  </div>
+</section>

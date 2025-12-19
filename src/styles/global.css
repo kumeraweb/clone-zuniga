@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+:root {
+  /* UCM Brand Colors */
+  --ucm-blue: #1f3c88; /* Azul principal UCM */
+  --ucm-blue-light: #2f5bd3; /* Azul CTA / WhatsApp */
+  --ucm-red: #e53935; /* Rojo institucional */
+  --ucm-gray: #f5f6f8;
+  --ucm-text-dark: #1a1a1a;
+}
+
+/* Helpers */
+.bg-ucm-blue {
+  background-color: var(--ucm-blue);
+}
+
+.bg-ucm-blue-light {
+  background-color: var(--ucm-blue-light);
+}
+
+.text-ucm-blue {
+  color: var(--ucm-blue);
+}
+
+.text-ucm-red {
+  color: var(--ucm-red);
+}

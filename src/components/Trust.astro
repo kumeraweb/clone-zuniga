@@ -1,0 +1,57 @@
+---
+// Bloque de Confianza UCM
+// Uso: refuerzo institucional post-planes
+// No CTA directo, solo autoridad visual
+
+const items = [
+  {
+    title: 'Flota UCM equipada',
+    text: 'Ambulancias equipadas con tecnología médica y monitoreo, operadas bajo protocolos UCM.',
+    image: '/images/ambulance.jpg'
+  },
+  {
+    title: 'Equipo profesional certificado',
+    text: 'Personal de salud capacitado y autorizado, con experiencia en atención extrahospitalaria.',
+    image: '/servicios/atencion_urgencia.jpg'
+  },
+  {
+    title: 'Central de coordinación médica',
+    text: 'Orientación y coordinación permanente para afiliados, según condiciones del plan.',
+    image: '/servicios/orientacion_medica.jpg'
+  }
+]
+---
+
+<section class="bg-gray-50 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 md:px-12">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Respaldo y confianza UCM</h2>
+      <p class="mt-4 text-gray-600">
+        Infraestructura, experiencia y respaldo institucional al servicio de los afiliados.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {
+        items.map((item) => (
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <h3 class="font-semibold text-gray-900 text-lg">{item.title}</h3>
+              <p class="mt-3 text-gray-600 text-sm">{item.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-10 text-center text-xs text-gray-500 max-w-3xl mx-auto">
+      Imágenes referenciales. Los servicios, coberturas y condiciones dependen del plan contratado.
+    </p>
+  </div>
+</section>

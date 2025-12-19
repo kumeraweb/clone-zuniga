@@ -1,0 +1,42 @@
+---
+import { UCM_SEO_ATTACK } from '../data/seo'
+
+const faqs = UCM_SEO_ATTACK.faqs
+---
+
+<section class="bg-gray-50 py-16 md:py-24">
+  <div class="max-w-5xl mx-auto px-5 md:px-12">
+    <!-- Title -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">
+        Preguntas frecuentes sobre Planes UCM
+      </h2>
+      <p class="mt-4 text-gray-600">
+        Resolvemos las principales dudas sobre la afiliación y contratación de planes UCM.
+      </p>
+    </div>
+
+    <!-- FAQ List -->
+    <div class="space-y-4">
+      {
+        faqs.map((item) => (
+          <details class="group bg-white rounded-xl border border-gray-200 px-6 py-5">
+            <summary class="flex cursor-pointer items-center justify-between font-medium text-gray-900">
+              <span>{item.q}</span>
+              <span class="ml-4 text-ucm-blue group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+
+            <p class="mt-4 text-sm text-gray-600 leading-relaxed">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+
+    <!-- Legal note -->
+    <p class="mt-10 text-center text-xs text-gray-500 max-w-3xl mx-auto">
+      La información entregada es referencial. Las condiciones, coberturas y tiempos de activación
+      pueden variar según el plan contratado y la zona. Confirma siempre los detalles con una
+      ejecutiva autorizada UCM.
+    </p>
+  </div>
+</section>

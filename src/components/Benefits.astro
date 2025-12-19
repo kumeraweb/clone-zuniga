@@ -1,0 +1,72 @@
+---
+const benefits = [
+  {
+    title: 'Atención médica 24/7',
+    description:
+      'Acceso permanente a atención médica extrahospitalaria y orientación de salud, según el plan contratado.',
+    icon: '🕒'
+  },
+  {
+    title: 'Cobertura en RM y V Región',
+    description:
+      'Planes con cobertura principal en la Región Metropolitana y Región de Valparaíso, según comuna.',
+    icon: '📍'
+  },
+  {
+    title: 'Planes familiares y empresas',
+    description:
+      'Alternativas diseñadas para familias, adultos mayores y empresas, con distintas opciones de cobertura.',
+    icon: '👨‍👩‍👧‍👦'
+  },
+  {
+    title: 'Respaldo Unidad Coronaria Móvil',
+    description:
+      'Acceso al respaldo operativo y experiencia de Unidad Coronaria Móvil, con infraestructura y red médica.',
+    icon: '🏥'
+  },
+  {
+    title: 'Profesionales certificados',
+    description:
+      'Atención entregada por personal de salud capacitado y autorizado, bajo protocolos establecidos.',
+    icon: '🩺'
+  },
+  {
+    title: 'Afiliación simple y guiada',
+    description:
+      'Proceso de afiliación claro y acompañado por una ejecutiva autorizada, sin trámites complejos.',
+    icon: '✅'
+  }
+]
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 md:px-12">
+    <!-- Title -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">
+        Beneficios de contratar un Plan UCM
+      </h2>
+      <p class="mt-4 text-gray-600">
+        Atención médica extrahospitalaria, respaldo profesional y cobertura permanente para tu
+        familia o empresa.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {
+        benefits.map((item) => (
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-ucm-blue-light/10 flex items-center justify-center text-2xl">
+              {item.icon}
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900">{item.title}</h3>
+              <p class="mt-2 text-gray-600 text-sm">{item.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

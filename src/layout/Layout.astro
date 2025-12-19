@@ -1,0 +1,96 @@
+---
+import type { Executive } from "../data/data";
+import { UCM_SEO_ATTACK } from "../data/seo";
+import '../styles/global.css'
+import FloatingWspp from "../components/FloatingWspp.astro";
+
+// Props obligatorias
+type Props = {
+  executive: Executive;
+  canonical?: string;
+};
+
+const { executive, canonical } = Astro.props;
+
+// Canonical final
+const CANONICAL =
+  canonical ??
+  executive.domain.replace(/\/+$/, "");
+
+// SEO dinámico
+const TITLE = UCM_SEO_ATTACK.title(executive);
+const DESCRIPTION = UCM_SEO_ATTACK.description(executive);
+
+// Keywords (string plano)
+const KEYWORDS = [
+  ...UCM_SEO_ATTACK.keywords.primary,
+  ...UCM_SEO_ATTACK.keywords.transactional,
+  ...UCM_SEO_ATTACK.keywords.local(executive.cityPrimary),
+].join(", ");
+
+// Schema
+const SCHEMA = UCM_SEO_ATTACK.schema(executive, CANONICAL);
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ================= SEO CORE ================= -->
+    <title>{TITLE}</title>
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="keywords" content={KEYWORDS} />
+    <link rel="canonical" href={CANONICAL} />
+
+    <!-- ================= OPEN GRAPH ================= -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content={TITLE} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:image" content={`${CANONICAL}${executive.ogImage}`} />
+    <meta property="og:url" content={CANONICAL} />
+
+    <!-- ================= TWITTER ================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={TITLE} />
+    <meta name="twitter:description" content={DESCRIPTION} />
+    <meta name="twitter:image" content={`${CANONICAL}${executive.ogImage}`} />
+
+    <!-- ================= FAVICON ================= -->
+    <link rel="icon" href="/favicon.png" />
+
+    <!-- ================= PRELOAD HERO ================= -->
+    {executive.heroImage && (
+      <link rel="preload" href={executive.heroImage} as="image" />
+    )}
+
+    <!-- ================= SCHEMA ================= -->
+    <script type="application/ld+json">
+      {JSON.stringify(SCHEMA)}
+    </script>
+
+    <!-- ================= GOOGLE ADS (placeholder) ================= -->
+    {/*
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'AW-XXXXXXXXX');
+    </script>
+    */}
+
+  </head>
+
+  <body class="bg-white text-gray-900 antialiased">
+
+    <!-- SLOT PRINCIPAL -->
+    <slot />
+
+    <!-- FLOATING WHATSAPP -->
+    <FloatingWspp executive={executive} />
+
+  </body>
+</html>

@@ -1,16 +1,52 @@
 ---
-
+import Layout from '../layout/Layout.astro'
+import { EXECUTIVES, buildLinks } from '../data/data'
+import Hero from '../components/Hero.astro'
+import Benefits from '../components/Benefits.astro'
+import Cobertura from '../components/Cobertura.astro'
+import Planes from '../components/Planes.astro'
+import Trust from '../components/Trust.astro'
+import FAQ from '../components/FAQ.astro'
+import CTA from '../components/CTA.astro'
+// Ejecutiva por defecto (luego haremos routing dinámico)
+const executive = EXECUTIVES[1]
+const { wa, call } = buildLinks(executive)
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout executive={executive}>
+  <main class="max-w-5xl mx-auto md:px-2">
+    <Hero
+      executive={executive}
+      backgroundVideo="/videos/ucm.mp4"
+      backgroundImage="/images/ambulance.jpg"
+    />
+    <Benefits />
+    <Cobertura />
+    <!-- TRUST / AUTORIDAD -->
+    <Planes executive={executive} />
+    <Trust />
+    <FAQ />
+    <CTA executive={executive} />
+    <section class="mt-12 text-center text-sm text-gray-500">
+      <p>
+        Página operada por <strong>{executive.fullName}</strong>, ejecutiva autorizada de Unidad
+        Coronaria Móvil (UCM).
+      </p>
+
+      {
+        executive.officialUcmProfileUrl && (
+          <p class="mt-2">
+            <a
+              href={executive.officialUcmProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline"
+            >
+              Ver perfil oficial en UCM Chile
+            </a>
+          </p>
+        )
+      }
+    </section>
+  </main>
+</Layout>
