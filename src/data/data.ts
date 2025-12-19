@@ -45,7 +45,7 @@ export const EXECUTIVES: Executive[] = [
 // Helpers (links CTA)
 export const buildLinks = (exec: Executive) => {
   const wa = `https://wa.me/56${exec.phone}?text=${encodeURIComponent(exec.whatsappMsg)}`
-  const call = `tel:+569${exec.phone}`
+  const call = `tel:+56${exec.phone}`
   const mail = `mailto:${exec.email}`
   return { wa, call, mail }
 }
