@@ -15,10 +15,10 @@ export type Executive = {
 
 export const EXECUTIVES: Executive[] = [
   {
-    slug: 'ejecutiva',
+    slug: 'ejecutivam',
     fullName: 'Ejecutiva Oficial',
     phone: '983589813',
-    email: 'ejecutiva@ucmchile.cl',
+    email: 'mmora@ucmchile.cl',
     cityPrimary: 'Santiago',
     cityCoverage: ['Santiago', 'Región Metropolitana', 'Valparaíso'],
     domain: 'https://www.planeatencionhogar.cl',
@@ -28,10 +28,10 @@ export const EXECUTIVES: Executive[] = [
     officialUcmProfileUrl: 'https://www.ucmchile.cl/'
   },
   {
-    slug: 'ejecutiva',
+    slug: 'ejecutivae',
     fullName: 'Ejecutiva Oficial',
     phone: '942874934',
-    email: 'ejecutiva@ucmchile.cl',
+    email: 'ezuniga@ucmchile.cl',
     cityPrimary: 'Valparaíso',
     cityCoverage: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'Villa Alemana', 'Santiago'],
     domain: 'https://www.planesdeasistenciaprivada.cl',
