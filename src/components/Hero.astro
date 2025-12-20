@@ -54,7 +54,6 @@ const { wa, call } = buildLinks(executive)
   <!-- OVERLAY (solo mobile) -->
   <div class="absolute inset-0 bg-black/55 md:hidden"></div>
 
-  <!-- CONTENT -->
   <div
     class="relative z-10 flex flex-col justify-center h-full px-5 pt-58 pb-10 space-y-6
               md:justify-center md:px-12 md:pt-0 md:pb-0 md:bg-ucm-blue"
@@ -65,12 +64,23 @@ const { wa, call } = buildLinks(executive)
     >
       <p class="uppercase tracking-wide text-sm text-white/80">Unidad Coronaria Móvil</p>
 
-      <h1 class="text-3xl leading-tight font-bold">Contrata tu Plan UCM</h1>
+      <h1 class="text-3xl leading-tight font-bold">Contratación de Planes UCM</h1>
 
       <p class="text-base text-white/90">
         Atención médica a domicilio 24/7. Afíliate hoy con
         <strong> {executive.fullName}</strong>, ejecutiva autorizada.
       </p>
+
+      <div class="text-sm text-white/90 space-y-1">
+        <p>
+          📞 <a href={call} class="underline underline-offset-2">{executive.phone}</a>
+        </p>
+        <p>
+          ✉️ <a href={`mailto:${executive.email}`} class="underline underline-offset-2">
+            {executive.email}
+          </a>
+        </p>
+      </div>
     </div>
 
     <!-- CTA PRIMARY -->
